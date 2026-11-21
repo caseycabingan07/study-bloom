@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Bloom | Student Productivity Hub</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✎</text></svg>">
+
+  <meta name="description" content="A student productivity hub with study tips, planning tools, and motivation.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- navigation -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home"><span class="brand-mark">✎</span> study bloom</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#tips">Study tips</a>
+        <a href="#planner">Planner</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- home section -->
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">STUDENT PRODUCTIVITY HUB</p>
+        <h1>Plan your work.<br><span>Make progress.</span></h1>
+        <p class="hero-text">A space for students to organize schoolwork, find their focus, and make busy days feel a little more manageable.</p>
+        <a class="primary-btn" href="#planner">Open my planner <span aria-hidden="true">→</span></a>
+        <div class="hero-note"><span>☕</span> One thing at a time. You got this.</div>
+      </div>
+
+      <div class="hero-card">
+        <div class="card-top"><span>quick reminder</span><span>✎</span></div>
+        <div class="sunflower">⌁</div>
+        <h2>Focus on what<br>you can do today.</h2>
+        <p>Keep your goals realistic and give yourself room to breathe.</p>
+        <div class="mini-checks"><span>✓ Make a plan</span><span>✓ Start with one task</span><span>✓ Take breaks</span></div>
+      </div>
+    </section>
+
+    <!-- about section -->
+    <section class="about section container" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">ABOUT THIS HUB</p>
+        <h2>Hi, I'm Casey.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <p>I'm <strong>Casey P. Cabingan</strong>, a BSIT student at Mabalacat City College. Like many students, I used to feel overwhelmed when several activities, deadlines, and projects piled up at the same time.</p>
+          <p>Eventually, I started making simple schedules, breaking big tasks into smaller ones, and writing down what I needed to finish. It wasn't a perfect system, but it helped me feel less lost and made schoolwork easier to manage.</p>
+          <p>I made Study Bloom to share the strategies that helped me—and hopefully remind other students that getting organized doesn't have to be complicated.</p>
+        </div>
+
+        <div class="about-highlight">
+          <span class="highlight-icon">📌</span>
+          <h3>My approach</h3>
+          <p>Keep things simple, set realistic goals, and adjust your schedule when life gets busy.</p>
+          <div class="tag-row"><span>planning</span><span>focus</span><span>balance</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- study tips -->
+    <section class="tips section" id="tips">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">STUDY NOTES</p>
+          <h2>Study smarter, not harder.</h2>
+          <p class="section-subtitle">A few habits that can make your school days feel more manageable.</p>
+        </div>
+
+        <div class="tip-grid">
+          <article class="tip-card"><div class="tip-icon lilac">📝</div><h3>Break it down</h3><p>Turn a big assignment into smaller steps. Starting with one tiny task feels less intimidating.</p><span class="tip-label">START SMALL</span></article>
+          <article class="tip-card"><div class="tip-icon peach">⏳</div><h3>Try focus sessions</h3><p>Work for 25 minutes, then take a short break. Adjust the time to what works for you.</p><span class="tip-label">FIND YOUR RHYTHM</span></article>
+          <article class="tip-card"><div class="tip-icon sage">📚</div><h3>Study actively</h3><p>Test yourself, explain concepts in your own words, or make practice questions instead of only rereading.</p><span class="tip-label">LEARN WITH PURPOSE</span></article>
+          <article class="tip-card"><div class="tip-icon blue">🌙</div><h3>Rest counts, too</h3><p>Sleep and breaks help you recharge. You don't need to be productive every minute of the day.</p><span class="tip-label">TAKE CARE</span></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- weekly planner -->
+    <section class="planner section container" id="planner">
+      <div class="section-heading">
+        <p class="eyebrow">WEEKLY DASHBOARD</p>
+        <h2>Plan your week.</h2>
+        <p class="section-subtitle">Choose a day, then add tasks with a name, description, and deadline.</p>
+      </div>
+
+      <div class="todo-panel">
+        <div class="day-tabs" id="day-tabs" role="tablist" aria-label="Days of the week"></div>
+
+        <div class="day-heading">
+          <div><h3 id="selected-day-title">Monday</h3><p id="day-summary" class="muted">Your tasks for this day</p></div>
+          <span class="panel-flower">✎</span>
+        </div>
+
+        <form id="task-form" class="task-form">
+          <input id="task-name" type="text" placeholder="Task name (e.g., Finish lab activity)" maxlength="100" required>
+          <textarea id="task-description" placeholder="Description (optional)" rows="2" maxlength="300"></textarea>
+          <label class="deadline-label" for="task-deadline">Deadline</label>
+          <input id="task-deadline" type="datetime-local">
+          <button class="add-task-btn" type="submit">Add task +</button>
+        </form>
+
+        <div class="task-stats"><span id="pending-count">0 pending</span><span id="completed-count">0 completed</span></div>
+        <ul id="task-list" class="task-list"></ul>
+        <p id="empty-message" class="empty-message">No tasks for this day yet. Add one above.</p>
+      </div>
+    </section>
+
+    <!-- quotes section -->
+    <section class="quotes section" id="quotes">
+      <div class="container quote-panel">
+        <div class="section-heading">
+          <p class="eyebrow">A LITTLE MOTIVATION</p>
+          <h2>Words from your favorite worlds.</h2>
+        </div>
+
+        <div class="quote-decoration">“</div>
+        <blockquote id="quote-text">Every journey has its final day. Don't rush.</blockquote>
+        <p id="quote-author" class="quote-author">— Zhongli · Genshin Impact</p>
+        <button id="quote-button" class="secondary-btn" type="button">Another quote ↻</button>
+        <p class="quote-note">Quotes are from Genshin Impact and Honkai: Star Rail only.</p>
+      </div>
+    </section>
+
+    <!-- resources section -->
+    <section class="resources section container" id="resources">
+      <div class="section-heading">
+        <p class="eyebrow">STUDENT TOOLKIT</p>
+        <h2>Useful study habits.</h2>
+        <p class="section-subtitle">Simple techniques you can try whenever you need a fresh start.</p>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card"><span>🗓️</span><h3>Weekly planning</h3><p>List deadlines first, then block out study time and breaks around your classes.</p></article>
+        <article class="resource-card"><span>🧠</span><h3>Active recall</h3><p>Close your notes and try to remember the key ideas. Check what you missed afterward.</p></article>
+        <article class="resource-card"><span>📌</span><h3>Prioritize</h3><p>Pick the most urgent or important task before spending time on smaller distractions.</p></article>
+      </div>
+    </section>
+
+    <!-- contact section -->
+    <section class="contact section" id="contact">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow">LET'S IMPROVE THIS HUB</p>
+          <h2>Have a study tip to share?</h2>
+          <p>If you have suggestions, useful study strategies, or ideas for this website, feel free to contact me. I'd be happy to hear them!</p>
+        </div>
+
+        <div class="contact-details">
+          <a href="mailto:caseypadawancabingan07@gmail.com">Personal email: caseypadawancabingan07@gmail.com</a>
+          <a href="mailto:c.cabingan60466@mcc.edu.ph">School email: c.cabingan60466@mcc.edu.ph</a>
+          <a href="tel:+639694627426">Phone: 0969 462 7426</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#home"><span class="brand-mark">✎</span> study bloom</a>
+      <p>Made by Casey P. Cabingan · BSIT Student, Mabalacat City College</p>
+      <p class="footer-small">Plan your work. Make progress.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
